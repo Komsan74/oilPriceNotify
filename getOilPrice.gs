@@ -12,53 +12,56 @@ function getOilPrice() {
 
   var webURL = "https://orapiweb.pttor.com/oilservice/OilPrice.asmx?WSDL";
 
-  var responseSOAP = getSoapContent(webURL, xml);  
- 
+  var responseSOAP = getSoapContent(webURL, xml);   
   var soapNamespace = responseSOAP.getNamespace("soap");
-  //console.log(soapNamespace.toString())
     
   var currentOilPriceResponse = responseSOAP.getChild("Body", soapNamespace).getChildren()[0];
   var currentOilPriceResult = currentOilPriceResponse.getChildren()[0];
   var pttor_ds_xml = currentOilPriceResult.getText();
   
   var pttor_ds = XmlService.parse(pttor_ds_xml).getRootElement();
-  
-  function fuel_details(elem, item) {
-    return pttor_ds.getChildren()[elem].getChildren()[item].getText();
+
+  var oilPrice = function (element, item, tag) {
+    return pttor_ds.getChildren(element)[item].getChild(tag).getText();
   }
 
-  var date = fuel_details(0, 0);
-  var diesel_premium = fuel_details(0, 1);
-  var diesel_premium_price = fuel_details(0, 2);
+  var fuel = "FUEL";
+  var price_date = "PRICE_DATE";
+  var product = "PRODUCT";
+  var price = "PRICE";
 
-  var diesel = fuel_details(1 , 1);
-  var diesel_price = fuel_details(1, 2);
+  var date = oilPrice(fuel, 0, price_date);
+  // var diesel_premium = oilPrice(fuel, 0, product); // "ดีเซลพรีเมี่ยม" tag="PRODUCT" แสดงชื่อชนิดน้ำมัน ถ้าใช้ก็เปิดคอมเมนต์
+  var diesel_premium_price = oilPrice(fuel, 0, price);
 
-  var diesel_b20 = fuel_details(2, 1);
-  var diesel_b20_price = fuel_details(2, 2);
+  // var diesel = oilPrice(fuel, 1, product);
+  var diesel_price = oilPrice(fuel, 1, price);
 
-  var gasoline = fuel_details(3, 1);
-  var gasoline_price = fuel_details(3, 2);
+  // var diesel_b20 = oilPrice(fuel, 2, product);
+  var diesel_b20_price = oilPrice(fuel, 2, price);
 
-  var gasohol_95 = fuel_details(4, 1);
-  var gasohol_95_price = fuel_details(4, 2);
+  // var gasoline = oilPrice(fuel, 3, product);
+  var gasoline_price = oilPrice(fuel, 3, price);
 
-  var gasohol_91 = fuel_details(5, 1);
-  var gasohol_91_price = fuel_details(5, 2);
+  // var gasohol_95 = oilPrice(fuel, 4, product);
+  var gasohol_95_price = oilPrice(fuel, 4, price);
 
-  var gasohol_e20 = fuel_details(6, 1);
-  var gasohol_e20_price = fuel_details(6, 2);
+  // var gasohol_91 = oilPrice(fuel, 5, product);
+  var gasohol_91_price = oilPrice(fuel, 5, price);
 
-  var gasohol_e85 = fuel_details(7, 1);
-  var gasohol_e85_price = fuel_details(7, 2);
+  // var gasohol_e20 = oilPrice(fuel, 6, product);
+  var gasohol_e20_price = oilPrice(fuel, 6, price);
 
-  var diesel_b7 = fuel_details(8, 1);
-  var diesel_b7_price = fuel_details(8, 2);
+  // var gasohol_e85 = oilPrice(fuel, 7, product);
+  var gasohol_e85_price = oilPrice(fuel, 7, price);
 
-  var gasohol_95_super = fuel_details(9, 1);
-  var gasohol_95_super_price = fuel_details(9, 2);
+  // var diesel_b7 = oilPrice(fuel, 8, product);
+  var diesel_b7_price = oilPrice(fuel, 8, price);
+
+  // var gasohol_95_super = oilPrice(fuel, 9, product);
+  var gasohol_95_super_price = oilPrice(fuel, 9, price);
  
-  // message to send notify
+  // ตัวอย่าง message to send notify 
   var message = "แจ้งราคาน้ำมัน" + "\n"
         + date + "\n"
         + "ดีเซลหมุนเร็ว → " + diesel_price + "\n"
@@ -77,7 +80,6 @@ function getOilPrice() {
 
 function getSoapContent(url, bodyXML) {
   var xml = bodyXML;
-  
   var options = {
     method: "post",
     contentType: "text/xml",
@@ -85,9 +87,8 @@ function getSoapContent(url, bodyXML) {
     payload: xml,
     muteHttpExceptions: true,
   }
-  
   var soapContent = UrlFetchApp.fetch(url, options);
-  var result = XmlService.parse(soapContent).getRootElement();
+  let result = XmlService.parse(soapContent).getRootElement();
 
   return result;
 }
