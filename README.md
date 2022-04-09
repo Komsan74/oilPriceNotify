@@ -24,3 +24,13 @@ Content-Length: length
   </soap12:Body>
 </soap12:Envelope>
 ```
+ในส่วนของ `string`  
+ภายใต้แท็ก `<Language>string</Language>`  
+เราก็เปลี่ยนเป็นชื่อย่อภาษาที่ต้องการ  
+ในที่นี้มีสองภาษาคือ  
+`en` ภาษาอังกฤษ  
+```<Language>en</Language>```  
+  
+`th` ภาษาไทย  
+```<Language>th</Language>```
+
