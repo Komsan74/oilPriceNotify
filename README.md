@@ -11,10 +11,12 @@ Document : https://orapiweb.pttor.com/oilservice/OilPrice.asmx?wsdl
 - [CurrentOilPrice](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=CurrentOilPrice)
 - [CurrentOilPriceProvincial](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=CurrentOilPriceProvincial)
 - [GetOilPrice](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=GetOilPrice)
-- [GetOilPriceProvincial](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=GetOilPriceProvincial)
+- [GetOilPriceProvincial](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=GetOilPriceProvincial)   
+
+โดยตัวอย่างนี้จะเลือกใช้ [CurrentOilPrice](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=CurrentOilPrice) มาเขียน Google AppScript เพื่อดึงข้อมูลจากเว็บเซอร์วิสออกมาใช้งาน
 
 ## HTTP Method
-SOAP 1.2 request and response  
+SOAP 1.2 request    
 ```HTTP
 POST /oilservice/OilPrice.asmx HTTP/1.1
 Host: orapiweb.pttor.com
@@ -41,4 +43,12 @@ Content-Length: length
 ```<Language>th</Language>```
 
 ## Google AppScript
-### getOilPrice()
+### getOilPrice()   
+เมื่อพิจารณาโครงสร้างของ HTTP Request ข้างต้นแล้ว เราสามารถแยกส่วนสำคัญที่จะเรียกใช้ดังนี้
+- Web Service URL
+- HTTP Options
+- XML Body   
+และนำ HTTP Options มาเขียนเป็นฟังก์ชั่นเปล่า ๆ ไว้รอเรียกใช้งานแบบนี้   
+```javascript
+
+```
