@@ -76,3 +76,5 @@ function getSoapContent(url, bodyXML) {
 ```
 
 ซึ่งเป็น *root element* ของ  *SOAP Message*
+
+### ยังเขียนไม่จบนะครับ จะรีบกลับมาเพิ่มเติมเร็ว ๆ นี้...
