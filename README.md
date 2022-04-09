@@ -5,7 +5,13 @@
 
 ## PTTOR OilPrice Web Service
 URL : 	https://orapiweb.pttor.com/oilservice/OilPrice.asmx  
-Document : https://orapiweb.pttor.com/oilservice/OilPrice.asmx?wsdl  
+Document : https://orapiweb.pttor.com/oilservice/OilPrice.asmx?wsdl   
+
+เมื่อคลิก URL เข้าไปดูก็จะพบว่ามีเว็บเซอร์วิสรอให้เลือกใช้งานอยู่ 4 รายการดังนี้
+- [CurrentOilPrice](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=CurrentOilPrice)
+- [CurrentOilPriceProvincial](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=CurrentOilPriceProvincial)
+- [GetOilPrice](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=GetOilPrice)
+- [GetOilPriceProvincial](https://orapiweb.pttor.com/oilservice/OilPrice.asmx?op=GetOilPriceProvincial)
 
 ## HTTP Method
 SOAP 1.2 request and response  
@@ -34,3 +40,5 @@ Content-Length: length
 `th` ภาษาไทย  
 ```<Language>th</Language>```
 
+## Google AppScript
+### getOilPrice()
