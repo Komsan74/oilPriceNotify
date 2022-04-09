@@ -43,12 +43,26 @@ Content-Length: length
 ```<Language>th</Language>```
 
 ## Google AppScript
-### getOilPrice()   
+### getSoapContent()   
 เมื่อพิจารณาโครงสร้างของ HTTP Request ข้างต้นแล้ว เราสามารถแยกส่วนสำคัญที่จะเรียกใช้ดังนี้
 - Web Service URL
 - HTTP Options
-- XML Body   
-และนำ HTTP Options มาเขียนเป็นฟังก์ชั่นเปล่า ๆ ไว้รอเรียกใช้งานแบบนี้   
-```javascript
+- XML Body  
 
+และนำรายละเอียดสำคัญจาก HTTP Options มาเขียนเป็นฟังก์ชั่นเปล่า ๆ ไว้รอเรียกใช้งานแบบนี้   
+```javascript
+function getSoapContent(url, bodyXML) {
+  var xml = bodyXML;
+  var options = {
+    method: "post",
+    contentType: "text/xml",
+    charset: "utf-8",
+    payload: xml,
+    muteHttpExceptions: true,
+  }
+  var soapContent = UrlFetchApp.fetch(url, options);
+  let result = XmlService.parse(soapContent).getRootElement();
+
+  return result;
+}
 ```
