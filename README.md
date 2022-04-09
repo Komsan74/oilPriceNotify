@@ -70,7 +70,13 @@ function getSoapContent(url, bodyXML) {
   return result;
 }
 ```
-เมื่อทำการเรียกให้ฟังก์ชั่น ถ้าเราใส่ *url* และ *bodyXML* ที่ถูกต้องเข้าไป ก็ควรจะได้ผลลัพท์กลับมาดังนี้
+เมื่อทำการเรียกให้ฟังก์ชั่น ถ้าเราใส่ *url* และ *bodyXML* ที่ถูกต้องเข้าไป  
+```javascript
+var responseSOAP = getSoapContent(webURL, xml);
+Logger.log(responseSOAP);
+```
+
+ก็ควรจะได้ผลลัพท์กลับมาดังนี้  
 ```xml
 [Element: <soap:Envelope [Namespace: http://www.w3.org/2003/05/soap-envelope]/>]
 ```
