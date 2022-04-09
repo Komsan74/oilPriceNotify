@@ -32,14 +32,18 @@ Content-Length: length
   </soap12:Body>
 </soap12:Envelope>
 ```
-ในส่วนของ `string`  
+จากข้อความ *xml* ด้านบน ในส่วนของ *`string`*  
 ภายใต้แท็ก `<Language>string</Language>`  
-เราก็เปลี่ยนเป็นชื่อย่อภาษาที่ต้องการ  
+
+เราก็เปลี่ยนเป็นชื่อย่อของภาษาที่ต้องการ  
 ในที่นี้มีสองภาษาคือ  
-`en` ภาษาอังกฤษ  
+
+*`en`* ภาษาอังกฤษ  
+
 ```<Language>en</Language>```  
   
-`th` ภาษาไทย  
+*`th`* ภาษาไทย  
+
 ```<Language>th</Language>```
 
 ## Google AppScript
@@ -66,3 +70,9 @@ function getSoapContent(url, bodyXML) {
   return result;
 }
 ```
+เมื่อทำการเรียกให้ฟังก์ชั่น ถ้าเราใส่ *url* และ *bodyXML* ที่ถูกต้องเข้าไป ก็ควรจะได้ผลลัพท์ดังนี้
+```xml
+[Element: <soap:Envelope [Namespace: http://www.w3.org/2003/05/soap-envelope]/>]
+```
+
+ซึ่งเป็น *root element* ของ  *SOAP Message*
