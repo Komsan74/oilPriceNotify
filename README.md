@@ -70,11 +70,12 @@ function getSoapContent(url, bodyXML) {
   return result;
 }
 ```
-เมื่อทำการเรียกให้ฟังก์ชั่น ถ้าเราใส่ *url* และ *bodyXML* ที่ถูกต้องเข้าไป ก็ควรจะได้ผลลัพท์ดังนี้
+เมื่อทำการเรียกให้ฟังก์ชั่น ถ้าเราใส่ *url* และ *bodyXML* ที่ถูกต้องเข้าไป ก็ควรจะได้ผลลัพท์กลับมาดังนี้
 ```xml
 [Element: <soap:Envelope [Namespace: http://www.w3.org/2003/05/soap-envelope]/>]
 ```
 
-ซึ่งเป็น *root element* ของ  *SOAP Message*
+ซึ่งเป็น *root element* ของ  *SOAP Message* นั่นเอง เราจะนำเอาส่วนนี้ไปสังเคราะห์ข้อมูลกันต่อ
+
 
 ### ยังเขียนไม่จบนะครับ จะรีบกลับมาเพิ่มเติมเร็ว ๆ นี้...
