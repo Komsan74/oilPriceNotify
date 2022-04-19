@@ -120,7 +120,7 @@ var oilPrice = function (child, item, subchild) {
 var oil_1_price = oilPrice("FUEL", 0, "PRICE");
 Logger.log(oil_1_price);
 ```
-ในที่นี้จะได้ผลลัพท์เป็นข้อความจาก child element "FUEL" ลำดับที่ 0 ใน subchild element "PRICE"   
+ในที่นี้จะไปดึงข้อความจาก subchild element "PRICE" ที่อยู่ใน child element "FUEL" ลำดับที่ 0   
 ซึ่งก็คือ `35.960`  
 จากนั้นเราก็ใช้วิธีเดียวกันนี้ในการเรียกดูข้อมูลจาก element ที่ต้องการ ข้อมูลที่ได้ก็แล้วแต่เราว่าจะนำไปใช้อะไรต่อ   
 จะเอาไปส่งข้อความแจ้งเตือนทางอีเมล, ไลน์ หรือจะเอาไปแสดงหน้าเว็บไซต์ ก็สุดแต่ความต้องการ
