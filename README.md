@@ -86,7 +86,7 @@ Logger.log(responseSOAP);
 ```javascript
 Logger.log(responseSOAP.getValue());
 ```
-ก็จะได้ผลลัพท์ประมาณนี้
+ก็จะได้ผลลัพท์ออกมาประมาณนี้
 ```xml
 <PTTOR_DS>
     <FUEL>
