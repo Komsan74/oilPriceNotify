@@ -102,7 +102,22 @@ Logger.log(responseSOAP.getValue());
 จากผลลัพท์จะเห็นว่ามีโครงสร้างดังนี้
 - PTTOR_DS *[root element]*
 - FUEL *[child element]*
-- PRICE_DATE, PRODUCT, PRICE *[subchild element]*
+- PRICE_DATE, PRODUCT, PRICE *[subchild element]* 
 
+สร้างฟังก์ชั่นง่าย ๆ ขึ้นมาไว้รีเทิร์นข้อความที่อยู่ใน subchild element 
+```javascript
+var oilPrice = function (child, item, subchild) {
+  return pttor_ds.getChildren(child)[item].getChild(subchild).getText();
+}
+```
 
-### ยังไม่จบนะครับ จะรีบกลับมาเพิ่มเติมเร็ว ๆ นี้...
+คราวนี้เราต้องการทราบราคาน้ำมันชนิดไหน ก็สามารถกำหนดการเรียกฟังก์ชั่นในลักษณะประมาณนี้
+```javascript
+var oil_1_price = oilPrice("FUEL", 0, "PRICE");
+Logger.log(oil_1_price);
+```
+ในที่นี้จะได้ผลลัพท์เป็นข้อความจาก child element "FUEL" ลำดับที่ 0 ใน subchild element "PRICE"   
+ซึ่งก็คือ `35.960`  
+จากนั้นเราก็ใช้วิธีเดียวกันนี้ในการเรียกดูข้อมูลจาก element ที่ต้องการ ข้อมูลที่ได้ก็แล้วแต่เราว่าจะนำไปใช้อะไรต่อ   
+จะเอาไปส่งข้อความแจ้งเตือนทางอีเมล, ไลน์ หรือจะเอาไปแสดงหน้าเว็บไซต์ ก็สุดแต่ความต้องการ
+
