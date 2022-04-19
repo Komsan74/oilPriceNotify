@@ -13,16 +13,11 @@ function getOilPrice() {
   var webURL = "https://orapiweb.pttor.com/oilservice/OilPrice.asmx?WSDL";
 
   var responseSOAP = getSoapContent(webURL, xml);   
-  var soapNamespace = responseSOAP.getNamespace("soap");
-    
-  var currentOilPriceResponse = responseSOAP.getChild("Body", soapNamespace).getChildren()[0];
-  var currentOilPriceResult = currentOilPriceResponse.getChildren()[0];
-  var pttor_ds_xml = currentOilPriceResult.getText();
   
-  var pttor_ds = XmlService.parse(pttor_ds_xml).getRootElement();
+  var pttor_ds =XmlService.parse(responseSOAP.getValue()).getRootElement();
 
-  var oilPrice = function (element, item, tag) {
-    return pttor_ds.getChildren(element)[item].getChild(tag).getText();
+  var oilPrice = function (child, item, subchild) {
+    return pttor_ds.getChildren(child)[item].getChild(subchild).getText();
   }
 
   var fuel = "FUEL";
@@ -31,7 +26,7 @@ function getOilPrice() {
   var price = "PRICE";
 
   var date = oilPrice(fuel, 0, price_date);
-  // var diesel_premium = oilPrice(fuel, 0, product); // "ดีเซลพรีเมี่ยม" tag="PRODUCT" แสดงชื่อชนิดน้ำมัน ถ้าใช้ก็เปิดคอมเมนต์
+  // var diesel_premium = oilPrice(fuel, 0, product); // "ดีเซลพรีเมี่ยม" subchild="PRODUCT" จะแสดงชื่อของชนิดน้ำมัน ถ้าต้องการใช้งานก็กำหนดค่าเข้าไปแบบนี้
   var diesel_premium_price = oilPrice(fuel, 0, price);
 
   // var diesel = oilPrice(fuel, 1, product);
