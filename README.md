@@ -99,12 +99,16 @@ Logger.log(responseSOAP.getValue());
     </FUEL>            
 </PTTOR_DS>
 ```  
-จากผลลัพท์จะเห็นว่ามีโครงสร้างดังนี้
+จะเห็นว่าข้อมูลที่ได้มีโครงสร้างดังนี้
 - PTTOR_DS *[root element]*
 - FUEL *[child element]*
 - PRICE_DATE, PRODUCT, PRICE *[subchild element]* 
 
-สร้างฟังก์ชั่นง่าย ๆ ขึ้นมาไว้รีเทิร์นข้อความที่อยู่ใน subchild element 
+กำหนด root element ก่อน
+```javascript
+var pttor_ds =XmlService.parse(responseSOAP.getValue()).getRootElement();
+```
+ได้แล้วก็สร้างฟังก์ชั่นง่าย ๆ ไว้รีเทิร์นข้อความที่อยู่ใน subchild element ออกมา
 ```javascript
 var oilPrice = function (child, item, subchild) {
   return pttor_ds.getChildren(child)[item].getChild(subchild).getText();
