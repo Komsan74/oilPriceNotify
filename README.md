@@ -83,5 +83,26 @@ Logger.log(responseSOAP);
 
 ซึ่งเป็น *root element* ของ  *SOAP Message* นั่นเอง เราจะนำเอาส่วนนี้ไปสังเคราะห์ข้อมูลกันต่อ
 
+```javascript
+Logger.log(responseSOAP.getValue());
+```
+ก็จะได้ผลลัพท์ประมาณนี้
+```xml
+<PTTOR_DS>
+    <FUEL>
+        <PRICE_DATE>4/19/2022 5:00:00 AM</PRICE_DATE>
+        <PRODUCT>ดีเซลพรีเมียม B7</PRODUCT>
+        <PRICE>35.960</PRICE>
+    </FUEL>
+    <FUEL>
+      ...
+    </FUEL>            
+</PTTOR_DS>
+```  
+จากผลลัพท์จะเห็นว่ามีโครงสร้างดังนี้
+- PTTOR_DS *[root element]*
+- FUEL *[child element]*
+- PRICE_DATE, PRODUCT, PRICE *[subchild element]*
+
 
 ### ยังไม่จบนะครับ จะรีบกลับมาเพิ่มเติมเร็ว ๆ นี้...
