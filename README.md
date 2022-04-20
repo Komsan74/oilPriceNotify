@@ -126,3 +126,4 @@ Logger.log(oil_1_price);
 จะเอาไปส่งข้อความแจ้งเตือนทางอีเมล, ไลน์ หรือจะเอาไปแสดงหน้าเว็บไซต์ ก็สุดแต่ความต้องการ
 
 <a href="https://github.com/Komsan74/oilPriceNotify/blob/main/getOilPrice.gs" class="button">Go to Source Code</a>
+123
