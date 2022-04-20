@@ -125,5 +125,4 @@ Logger.log(oil_1_price);
 จากนั้นเราก็ใช้วิธีเดียวกันนี้ในการเรียกดูข้อมูลจาก element ที่ต้องการ ข้อมูลที่ได้ก็แล้วแต่เราว่าจะนำไปใช้อะไรต่อ   
 จะเอาไปส่งข้อความแจ้งเตือนทางอีเมล, ไลน์ หรือจะเอาไปแสดงหน้าเว็บไซต์ ก็สุดแต่ความต้องการ
 
-### <button>[Source Code](https://github.com/Komsan74/oilPriceNotify/blob/main/getOilPrice.gs)</button>
-<a href="https://github.com/Komsan74/oilPriceNotify/blob/main/getOilPrice.gs" class="button primary">Go to Source Code</a>
+<a href="https://github.com/Komsan74/oilPriceNotify/blob/main/getOilPrice.gs" class="button danger">Go to Source Code</a>
